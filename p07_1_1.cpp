@@ -4,47 +4,56 @@ using namespace std;
 class Car
 {
 private:
-	int gasonlineGauge;
+	int gasolinegauge;
 public:
-	Car(int gas): gasonlineGauge(gas)
-	{}
-	int GetGasGauge()
+	Car(int gas):gasolinegauge(gas)
+	{} 
+	int GetGasgauge()
 	{
-		return gasonlineGauge;
+		return gasolinegauge;
 	}
 };
 
-class HybridCar : public Car
+class HybridCar: public Car
 {
 private:
-	int electricGauge;
+	int electricgauge;
 public:
-	HybridCar(int gas, int elec): Car(gas), electricGauge(elec)
+	HybridCar(int gas, int elec) : Car(gas), electricgauge(elec)
 	{}
-	int GetElecGauge()
+	int GetElecgauge()
 	{
-		return electricGauge;
+		return electricgauge;
 	}
 };
 
-class HybridWaterCar : public HybridCar
+class HybridWaterCar: public HybridCar
 {
 private:
-	int waterGauge;
+	int watergauge;
 public:
-	HybridWaterCar(int gas, int elec, int water): HybridCar(gas, elec), waterGauge(water)
+	HybridWaterCar(int gas, int elec, int water=100) : HybridCar(gas, elec), watergauge(water)
 	{}
-	void ShowCurrentGauge()
+	void ShowCurrentgauge()
 	{
-		cout<<"잔여 가솔린: "<<GetGasGauge()<<endl;
-		cout<<"잔여 전기량: "<<GetElecGauge()<<endl;
-		cout<<"잔여 워터량: "<<waterGauge<<endl;
+		cout<<"remain gasoline: "<<GetGasgauge()<<endl;
+		cout<<"remain electricity: "<<GetElecgauge()<<endl;
+		cout<<"remain water: "<<watergauge<<endl;
 	}
 };
 
 int main()
 {
-	HybridWaterCar wCar(79,65,35);
-	wCar.ShowCurrentGauge();
+	Car car1(100);
+	HybridCar car2(80, 80);
+	HybridWaterCar car3(60, 60, 60);
+	HybridWaterCar car4(60, 50);
+
+	cout<<car1.GetGasgauge()<<endl;
+	cout<<car2.GetGasgauge()<<endl;
+	cout<<car2.GetElecgauge()<<endl;
+	car3.ShowCurrentgauge();
+	car4.ShowCurrentgauge();
+
 	return 0;
 }
