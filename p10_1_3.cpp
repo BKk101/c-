@@ -26,7 +26,7 @@ bool operator==(const Point ref1, const Point ref2)
 
 bool operator!=(const Point ref1, const Point ref2)
 {
-	return (ref1==ref2);
+	return !(ref1==ref2);
 }
 
 int main()
